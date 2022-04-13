@@ -1,0 +1,47 @@
+ <div onload="init()" class="bgcolor">
+    <div class="mt-5 ml-5 btn" style="color: white;" routerLink="/home" routerLinkActive="active"><-- Back</div>
+    <div class="container-fluid">
+        <div class="row mt-3 ">
+            <div class="col-xl-3">
+                <div class="row">
+                    <div class="col p-2 text-center" style="border: 2px solid blue; font-size: 25px; background-color: blue; color: white;">Steps to play</div>
+                </div>
+                <div class="row pl-1" >
+                    <ul style="color: white; font-size: larger;">
+                        <li style="padding-top: 20px;">Choose one of the Labels provided on
+                            the right.
+                            ( For eg. Sun. Flower, Umbrella)</li>
+                        <li style="padding-top: 20px;">Draw inside the given Canvas area.</li>
+                        <li style="padding-top: 20px;">Press 'Confirm Selection'.</li>
+                        <li style="padding-top: 20px;">If you make a mistake while drawing.
+                            press 'Clear Selection.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-6 text-center">
+                <canvas id="myCanvas" class="canvas-bg" width="384px" height="384px">
+                </canvas>
+            </div>
+            <div class="col-xl-3">
+                <div class="row">
+                    <div class="col p-2 text-center" style="border: 2px solid blue; font-size: 25px; background-color: blue; color: white;">Choose from Labels</div>
+                </div>
+                <div class="row mx-2">
+                    <div class="col-sm-11">
+                        <div class="row" *ngFor="let data of links" >
+                            <div class="col data text-center mt-1 p-1" (click)="labelselect(data.data, data.id)">{{ data.data }}
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col btn text-center mt-3 p-2" id="save" (click)="postreq()" style="border: 2px solid greenyellow; background-color: greenyellow; border-radius: 25px; font-size: 20px; color:rgb(6, 6, 126);;"><strong>Confirm Selection</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="col btn text-center mt-3 p-2" id="clear" style="border: 2px solid rgb(255, 47, 75); background-color: rgb(255, 47, 75); border-radius: 25px; font-size: 20px; color:white;"><strong>Clear Canvas</strong></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
